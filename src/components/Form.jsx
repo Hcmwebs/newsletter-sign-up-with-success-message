@@ -1,14 +1,13 @@
 import { useState } from 'react';
 
-const Form = () => {
+const Form = ({ setIsSubmitted }) => {
 	const initialState = { email: '' };
-	const [isSubmitted, setIsSubmitted] = useState(false);
 	const [values, setValues] = useState(initialState);
 
 	const handleChange = (e) => {
 		const name = e.target.name;
 		const value = e.target.value;
-		setEmail({ ...values, [name]: value });
+		setValues({ ...values, [name]: value });
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();

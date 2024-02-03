@@ -3,7 +3,13 @@ import { Card, CardSuccess } from './components';
 const App = () => {
 	const [isSubmitted, setIsSubmitted] = useState(false);
 	return (
-		<>{isSubmitted ? <Card isSubmitted={isSubmitted} /> : <CardSuccess />};</>
+		<>
+			{!isSubmitted ? (
+				<Card setIsSubmitted={setIsSubmitted} />
+			) : (
+				<CardSuccess />
+			)}
+		</>
 	);
 };
 
