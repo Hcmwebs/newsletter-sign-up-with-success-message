@@ -1,18 +1,21 @@
 import { useState } from 'react';
 
 const Form = () => {
+	const initialState = { email: '' };
 	const [isSubmitted, setSubmitted] = useState(false);
-	const [email, setEmail] = useState('');
+	const [values, setValues] = useState(initialState);
+
 	const handleChange = (e) => {
+		const name = e.target.name;
 		const value = e.target.value;
-		setEmail(value);
+		setEmail({ ...values, [name]: value });
 	};
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		const { email } = values;
 		if (!email) return;
-
-		setEmail('');
-		setSubmitted(true);
+		setValues(initialState);
+		setSubmitted(!isSubmitted);
 	};
 	return (
 		<form onSubmit={handleSubmit} className='grid grid-cols-1 gap-y-6 w-full'>
@@ -24,7 +27,7 @@ const Form = () => {
 					type='email'
 					name='email'
 					id='email'
-					value={email}
+					value={values.email}
 					onChange={handleChange}
 					placeholder='email@email.com'
 					className='input input-bordered input-base-100 bg-transparent text-base-100 focus:outline-none focus:border-2 focus:border-base-100 invalid:border-primary'
