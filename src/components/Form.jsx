@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const Form = () => {
 	const initialState = { email: '' };
-	const [isSubmitted, setSubmitted] = useState(false);
+	const [isSubmitted, setIsSubmitted] = useState(false);
 	const [values, setValues] = useState(initialState);
 
 	const handleChange = (e) => {
@@ -15,7 +15,7 @@ const Form = () => {
 		const { email } = values;
 		if (!email) return;
 		setValues(initialState);
-		setSubmitted(!isSubmitted);
+		setIsSubmitted(true);
 	};
 	return (
 		<form onSubmit={handleSubmit} className='grid grid-cols-1 gap-y-6 w-full'>
