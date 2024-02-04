@@ -4,6 +4,7 @@ import { Button } from './index';
 const Form = ({ setIsSubmitted }) => {
 	const initialState = { email: '' };
 	const [values, setValues] = useState(initialState);
+	const [error, setError] = useState('');
 
 	const handleChange = (e) => {
 		const name = e.target.name;
@@ -13,7 +14,15 @@ const Form = ({ setIsSubmitted }) => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		const { email } = values;
-		if (!email) return;
+		const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
+		const isValidEmail = emailRegex.test(email);
+		console.log(isValidEmail);
+
+		if (!email || !isValidEmail) {
+			setError('Valid Email required');
+			return;
+		}
+		setError('');
 		setIsSubmitted(true);
 		setValues(initialState);
 	};
@@ -21,7 +30,7 @@ const Form = ({ setIsSubmitted }) => {
 		<form onSubmit={handleSubmit} className='grid grid-cols-1 gap-y-6 w-full'>
 			<div className='form-control'>
 				<label htmlFor='email' className='label'>
-					Email address
+					Email address <span className='text-primary'>{error}</span>
 				</label>
 				<input
 					type='email'
@@ -30,7 +39,9 @@ const Form = ({ setIsSubmitted }) => {
 					value={values.email}
 					onChange={handleChange}
 					placeholder='email@email.com'
-					className='input input-bordered input-base-100 bg-transparent text-base-100 focus:outline-none focus:border-2 focus:border-base-100 focus:invalid:border-primary'
+					className='input input-bordered input-base-100 bg-transparent text-base-100 focus:outline-none focus:border-2 focus:border-base-100 
+invalid:border-2 invalid:border-primary invalid:text-primary
+					focus:invalid:border-primary focus:invalid:text-primary'
 				/>
 			</div>
 			<div className='card-actions justify-end'>
