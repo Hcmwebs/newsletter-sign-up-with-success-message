@@ -11,6 +11,7 @@ export default {
 			{
 				mytheme: {
 					primary: 'hsl(4,100%,67%)',
+					secondary: 'hsl(346,100%,66%)',
 					neutral: 'hsl(231, 7%, 60%)',
 					'base-100': 'hsl(234, 29%, 20%)',
 					'base-200': 'hsl(235, 18%, 26%)',
