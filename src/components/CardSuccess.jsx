@@ -12,7 +12,7 @@ const CardSuccess = () => {
 				<Button
 					type='button'
 					text='Dismiss message'
-					className='btn btn-base-100 btn-block mt-60 lg:mt-0 text-white border-0 hover:shadow-2xl hover:shadow-primary hover:bg-primary'
+					className='btn btn-base-100 btn-block mt-60 lg:mt-0 text-white border-0 hover:shadow-2xl hover:shadow-primary/50 hover:bg-gradient-to-b from-primary to-secondary'
 				/>
 			</div>
 		</main>
