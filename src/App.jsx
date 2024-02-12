@@ -1,16 +1,8 @@
-import { useState } from 'react';
 import { Card, CardSuccess } from './components';
+import { useGlobalContext } from './context/GlobalContext';
 const App = () => {
-	const [isSubmitted, setIsSubmitted] = useState(false);
-	return (
-		<>
-			{!isSubmitted ? (
-				<Card setIsSubmitted={setIsSubmitted} />
-			) : (
-				<CardSuccess />
-			)}
-		</>
-	);
+	const { isSubmitted } = useGlobalContext();
+	return <>{!isSubmitted ? <Card /> : <CardSuccess />}</>;
 };
 
 export default App;
