@@ -6,8 +6,10 @@ import CardSuccess from './CardSuccess';
 import CardSuccessImage from './CardSuccessImage';
 import Form from './Form';
 import List from './List';
+import ListItem from './ListItem';
 import Title from './Title';
 export {
+	ListItem,
 	Button,
 	CardSuccess,
 	CardSuccessImage,
