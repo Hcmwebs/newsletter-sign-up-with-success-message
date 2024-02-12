@@ -9,7 +9,9 @@ const CardSuccess = () => {
 				<CardSuccessImage />
 				<Title
 					header='Thanks for subscribing!'
-					text={`A confirmation email has been sent to ${values.email} Please open it and click the button inside to confirm your subscription`}
+					text1='A confirmation email has been sent to '
+					textSpan={` ${values.email}. `}
+					text2='Please open it and click the button inside to confirm your subscription'
 				/>
 				<Button
 					type='button'
