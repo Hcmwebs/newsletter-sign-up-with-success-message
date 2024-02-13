@@ -20,7 +20,7 @@ const AppContextProvider = ({ children }) => {
 		const isValidEmail = emailRegex.test(email);
 
 		if (!email || !isValidEmail) {
-			setError('Valid Email required');
+			setError('Valid email required');
 			return;
 		}
 		setError('');
