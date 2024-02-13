@@ -57,7 +57,7 @@ Users should be able to:
 
 ### What I learned
 
-- Centering the marker image with the text for the lists
+- Centering the marker image with the text on the lists
 
 ### Continued development
 
